@@ -1,0 +1,11 @@
+export enum ID_TYPE {
+  NONE,
+  OBJECT,
+  VEHICLE,
+  PICKUP,
+  ATTACH,
+  ACTOR,
+  PLAYER,
+  BUILDING,
+  MAX,
+}
