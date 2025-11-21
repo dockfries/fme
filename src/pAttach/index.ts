@@ -368,8 +368,8 @@ export async function showAttachedDialog(player: Player, dialogId: number) {
 
           const g_BoneString = getBoneName(boneId);
 
-          const g_ModelString = getModelName(modelId);
-          g_DialogInfoRow = `${index}\t{modelId}\t${g_ModelString}\t${g_BoneString}\n`;
+          const g_ModelString = getModelName(modelId).name;
+          g_DialogInfoRow = `${index}\t${modelId}\t${g_ModelString}\t${g_BoneString}\n`;
         } else {
           g_DialogInfoRow = `${index}\t \t \t \n`;
         }
@@ -411,7 +411,7 @@ export async function showAttachedDialog(player: Player, dialogId: number) {
 
               let g_DialogInfoRow = "";
               if (g_ModelString.ret) {
-                g_DialogInfoRow = `Model\t${modelId} ${g_ModelString}\n`;
+                g_DialogInfoRow = `Model\t${modelId} ${g_ModelString.name}\n`;
               } else {
                 g_DialogInfoRow = `Model\t${modelId} NOT FOUND\n`;
               }

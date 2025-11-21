@@ -107,7 +107,7 @@ export function refreshPlayerEditMarker(player: Player) {
     case ID_TYPE.OBJECT: {
       objectId = g_PlayerData.get(player.id).editId;
       if (ObjectMp.isValid(objectId)) {
-        modelId = ObjectMp.getInstance(objectId, player)!.getModel();
+        modelId = ObjectMp.getInstance(objectId)!.getModel();
         unToggle = false;
       }
       break;

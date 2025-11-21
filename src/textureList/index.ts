@@ -881,7 +881,7 @@ export function loadTextureListRowData(player: Player) {
     g_TextureListData.get(player.id).rowTid[row] = INVALID_TEXTURE_ID;
   }
 
-  g_TextureListData.get(player.id).maxPage = Math.ceil(
+  g_TextureListData.get(player.id).maxPage = Math.floor(
     maxOffset / MAX_TEXTURELIST_ROWS
   );
 

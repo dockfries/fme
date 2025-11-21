@@ -189,7 +189,7 @@ export function saveMap(
 ) {
   const g_FilePathString = getMapFilePath(mapName);
 
-  const ws = fs.createWriteStream(g_FilePathString, { flags: "a" });
+  const ws = fs.createWriteStream(g_FilePathString, { flags: "w" });
 
   const slotObjectId: number[] = [];
   const objectIdSlot: Record<number, number> = {};
@@ -334,7 +334,7 @@ export function saveMap(
     for (let slot = 0; slot < 14; slot++) {
       const componentId = vehicle.getComponentInSlot(slot);
       if (componentId) {
-        const g_ModelString = getModelName(componentId);
+        const g_ModelString = getModelName(componentId).name;
         const writeString = `AddVehicleComponent(g_Vehicle[${v}], ${componentId});//${g_ModelString}\r\n`;
         ws.write(writeString);
       }
@@ -439,7 +439,7 @@ export function saveMap(
 
       const g_ModelString = getModelName(
         g_PlayerAttachData.get(player.id)[index].model
-      );
+      ).name;
       const g_BoneString = getBoneName(
         g_PlayerAttachData.get(player.id)[index].bone
       );
@@ -485,7 +485,7 @@ export function saveMap(
       continue;
     }
 
-    const g_ModelString = getModelName(g_BuildingData.get(b).model);
+    const g_ModelString = getModelName(g_BuildingData.get(b).model).name;
 
     const writeString =
       `RemoveBuildingForPlayer(playerid, ` +

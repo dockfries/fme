@@ -852,6 +852,7 @@ export function createPlayerCreateList(player: Player) {
     x: 116.0,
     y: 164.0,
     text: "Search",
+    player
   })
     .create()
     .setAlignment(2)
@@ -928,7 +929,7 @@ export function destroyPlayerCreateList(player: Player) {
 export function showCreateList(player: Player) {
   createPlayerCreateList(player);
 
-  Object.values(g_CreateListPTD).forEach(
+  Object.values(g_CreateListGTD).forEach(
     (gtd: ICreateListGtd[keyof ICreateListGtd]) => {
       if (gtd && gtd.isValid()) {
         gtd.show(player);
@@ -965,7 +966,7 @@ export function showCreateList(player: Player) {
 export function hideCreateList(player: Player) {
   hideModelView(player);
 
-  Object.values(g_CreateListPTD).forEach(
+  Object.values(g_CreateListGTD).forEach(
     (gtd: ICreateListGtd[keyof ICreateListGtd]) => {
       if (gtd && gtd.isValid()) {
         gtd.hide(player);
@@ -1427,7 +1428,7 @@ export function loadCreateListRowData(player: Player) {
       maxOffset = res.maxOffset;
       rowsAdded = res.rowsAdded;
 
-      g_CreateObjListData.get(player.id).maxPage = Math.ceil(
+      g_CreateObjListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_CREATELIST_ROWS
       );
 
@@ -1449,7 +1450,7 @@ export function loadCreateListRowData(player: Player) {
       maxOffset = res.maxOffset;
       rowsAdded = res.rowsAdded;
 
-      g_CreateVehListData.get(player.id).maxPage = Math.ceil(
+      g_CreateVehListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_CREATELIST_ROWS
       );
 
@@ -1471,7 +1472,7 @@ export function loadCreateListRowData(player: Player) {
       maxOffset = res.maxOffset;
       rowsAdded = res.rowsAdded;
 
-      g_CreatePickListData.get(player.id).maxPage = Math.ceil(
+      g_CreatePickListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_CREATELIST_ROWS
       );
 
@@ -1493,7 +1494,7 @@ export function loadCreateListRowData(player: Player) {
       maxOffset = res.maxOffset;
       rowsAdded = res.rowsAdded;
 
-      g_CreateActListData.get(player.id).maxPage = Math.ceil(
+      g_CreateActListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_CREATELIST_ROWS
       );
 
@@ -1515,7 +1516,7 @@ export function loadCreateListRowData(player: Player) {
       maxOffset = res.maxOffset;
       rowsAdded = res.rowsAdded;
 
-      g_CreateAttachListData.get(player.id).maxPage = Math.ceil(
+      g_CreateAttachListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_CREATELIST_ROWS
       );
 

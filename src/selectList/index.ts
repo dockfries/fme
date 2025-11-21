@@ -1411,15 +1411,15 @@ export function applySelectListRowColor(player: Player, row: number) {
 
   g_SelectListPTD
     .get(player.id)
-    .idRow[row]?.setString(rgbaBoxColor.toString())
+    .idRow[row]?.setBoxColors(rgbaBoxColor)
     .show();
   g_SelectListPTD
     .get(player.id)
-    .modelIdRow[row]?.setString(rgbaBoxColor.toString())
+    .modelIdRow[row]?.setBoxColors(rgbaBoxColor)
     .show();
   g_SelectListPTD
     .get(player.id)
-    .commentRow[row]?.setString(rgbaBoxColor.toString())
+    .commentRow[row]?.setBoxColors(rgbaBoxColor)
     .show();
   return 1;
 }
@@ -1482,14 +1482,15 @@ export function applySelectListRowData(player: Player, row: number) {
       break;
     }
     case TD_MODE.SELECTLIST_ACTOR: {
+      
       idStr = actorId.toString();
-      modelIdStr = Actor.getInstance(objectId)!.getSkin().toString();
+      modelIdStr = Actor.getInstance(actorId)!.getSkin().toString();
       g_CommentString = g_ActorData.get(actorId).comment || "";
       break;
     }
     case TD_MODE.SELECTLIST_PICKUP: {
       idStr = pickupId.toString();
-      modelIdStr = Pickup.getInstance(objectId)!.getModel().toString();
+      modelIdStr = Pickup.getInstance(pickupId)!.getModel().toString();
       g_CommentString = g_PickupData.get(pickupId).comment;
       break;
     }
@@ -1521,7 +1522,7 @@ export function loadSelectListRowData(player: Player) {
       rowsAdded = res.rowsAdded;
       maxOffset = res.maxOffset;
 
-      g_SelectObjListData.get(player.id).maxPage = Math.ceil(
+      g_SelectObjListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_SELECT_LIST_ROWS
       );
 
@@ -1542,7 +1543,7 @@ export function loadSelectListRowData(player: Player) {
       rowsAdded = res.rowsAdded;
       maxOffset = res.maxOffset;
 
-      g_SelectVehListData.get(player.id).maxPage = Math.ceil(
+      g_SelectVehListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_SELECT_LIST_ROWS
       );
 
@@ -1563,7 +1564,7 @@ export function loadSelectListRowData(player: Player) {
       rowsAdded = res.rowsAdded;
       maxOffset = res.maxOffset;
 
-      g_SelectActListData.get(player.id).maxPage = Math.ceil(
+      g_SelectActListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_SELECT_LIST_ROWS
       );
 
@@ -1584,7 +1585,7 @@ export function loadSelectListRowData(player: Player) {
       rowsAdded = res.rowsAdded;
       maxOffset = res.maxOffset;
 
-      g_SelectPickListData.get(player.id).maxPage = Math.ceil(
+      g_SelectPickListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_SELECT_LIST_ROWS
       );
 

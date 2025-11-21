@@ -1408,6 +1408,6 @@ export function applyModelViewVehCol1(player: Player) {
 }
 
 export function applyModelViewVehCol2(player: Player) {
-  const g_TextDrawString = `Veh Col 2: ${g_ModelViewData.get(player.id).vc1}`;
+  const g_TextDrawString = `Veh Col 2: ${g_ModelViewData.get(player.id).vc2}`;
   g_ModelViewPTD.get(player.id).vc2?.setString(g_TextDrawString);
 }

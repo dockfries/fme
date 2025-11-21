@@ -59,7 +59,7 @@ export const MIN_CATEGORYSELECT_PAGE = 0;
 
 export enum LITEM_CATEGORYSELECT {
   ROW_F,
-  ROW_L = ROW_F + MAX_CATEGORYSELECT_ROWS - 1,
+  ROW_L = ROW_F + 20 - 1, // MAX_CATEGORYSELECT_ROWS = 20
   SPACE,
   SEARCH,
   PAGE,
@@ -399,7 +399,7 @@ export function loadCategorySelectData(player: Player) {
     g_CategorySelectData.get(player.id).rowId[row] = INVALID_CATEGORY_ID;
   }
 
-  g_CategorySelectData.get(player.id).maxPage = Math.ceil(
+  g_CategorySelectData.get(player.id).maxPage = Math.floor(
     maxOffset / MAX_CATEGORYSELECT_ROWS
   );
   return 1;

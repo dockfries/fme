@@ -449,7 +449,7 @@ export async function showActorDialog(player: Player, dialogId: number) {
             break;
           }
           case DIALOG_LISTITEM_ACTOR.MOVE: {
-            g_DialogInfo += g_DialogInfo += "Click & Drag Move\t \n";
+            g_DialogInfo += "Click & Drag Move\t \n";
             break;
           }
           case DIALOG_LISTITEM_ACTOR.REMOVE: {

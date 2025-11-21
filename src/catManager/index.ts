@@ -1258,6 +1258,7 @@ export function createPlayerCategoryManager(player: Player) {
       x: 114.0,
       y: 125.0,
       text: "Name",
+      player
     })
       .create()
       .setBackgroundColors(255)
@@ -1271,6 +1272,7 @@ export function createPlayerCategoryManager(player: Player) {
       x: 114.0,
       y: 307.0,
       text: "Name",
+      player
     })
       .create()
       .setBackgroundColors(255)
@@ -1996,11 +1998,11 @@ export function loadCategoryManagerRowData(player: Player, window: boolean) {
   }
 
   if (window === CAT_MANAGER_WINDOW_ALL) {
-    g_CatManagerData.get(player.id).maxPageAll = Math.ceil(
+    g_CatManagerData.get(player.id).maxPageAll = Math.floor(
       maxOffset / MAX_CAT_MANAGER_ROWS
     );
   } else {
-    g_CatManagerData.get(player.id).maxPageCat = Math.ceil(
+    g_CatManagerData.get(player.id).maxPageCat = Math.floor(
       maxOffset / MAX_CAT_MANAGER_ROWS
     );
   }

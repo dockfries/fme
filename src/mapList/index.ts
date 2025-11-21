@@ -18,7 +18,7 @@ export const MIN_MAPLIST_PAGE = 0;
 
 export enum MAP_LIST_ITEM {
   ROW_F,
-  ROW_L = ROW_F + MAX_MAPLIST_ROWS - 1,
+  ROW_L = ROW_F + 20 - 1, // MAX_MAPLIST_ROWS = 20
   SPACE,
   SEARCH,
   PAGE,
@@ -74,7 +74,7 @@ export function loadMapListData(player: Player) {
     g_MapListData.get(player.id).rowId[row] = INVALID_MAP_ID;
   }
 
-  g_MapListData.get(player.id).maxPage = Math.ceil(
+  g_MapListData.get(player.id).maxPage = Math.floor(
     maxOffset / MAX_MAPLIST_ROWS
   );
 }
@@ -265,7 +265,7 @@ export async function showMapListDialog(player: Player, dialogId: number) {
           if (mapId === INVALID_MAP_ID) {
             g_DialogInfo += "-\t-\n";
           } else {
-            const g_MapString = getMapName(mapId);
+            const g_MapString = getMapName(mapId).name;
             const g_DialogInfoRow = `${mapId}\t${g_MapString}\n`;
             g_DialogInfo += g_DialogInfoRow;
           }

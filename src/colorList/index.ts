@@ -1253,7 +1253,7 @@ export function loadColorListRowData(player: Player) {
         g_ModelColorListData.get(player.id).rowId[row] = INVALID_COLOR_ID;
       }
 
-      g_ModelColorListData.get(player.id).maxPage = Math.ceil(
+      g_ModelColorListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_COLORLIST_ROWS
       );
 
@@ -1276,7 +1276,7 @@ export function loadColorListRowData(player: Player) {
         g_VehColorListData.get(player.id).rowId[row] = INVALID_COLOR_ID;
       }
 
-      g_VehColorListData.get(player.id).maxPage = Math.ceil(
+      g_VehColorListData.get(player.id).maxPage = Math.floor(
         maxOffset / MAX_COLORLIST_ROWS
       );
 

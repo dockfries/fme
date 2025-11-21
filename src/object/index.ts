@@ -1646,7 +1646,7 @@ export async function showObjectDialog(player: Player, dialogId: number) {
             }
             case DIALOG_LISTITEM_OBJECT.COMMENT_RESET: {
               const obj = ObjectMp.getInstance(objectId)!;
-              const g_ModelString = getModelName(obj.getModel());
+              const g_ModelString = getModelName(obj.getModel()).name;
               const g_DialogInfoRow = `Reset Comment To\t${g_ModelString}\n`;
               g_DialogInfo += g_DialogInfoRow;
               break;

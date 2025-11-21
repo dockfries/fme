@@ -356,7 +356,7 @@ export async function showPickupDialog(player: Player, dialogId: number) {
           case DIALOG_LISTITEM_PICKUP.COMMENT_RESET: {
             const g_ModelString = getModelName(
               g_PickupData.get(pickupId).model
-            );
+            ).name;
             const g_DialogInfoRow = `Reset Comment To\t${g_ModelString}\n`;
             g_DialogInfo += g_DialogInfoRow;
             break;

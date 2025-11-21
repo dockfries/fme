@@ -584,7 +584,7 @@ export function loadFontListRowData(player: Player) {
     g_FontListData.get(player.id).rowFontId[row] = INVALID_FONT_ID;
   }
 
-  g_FontListData.get(player.id).maxPage = Math.ceil(
+  g_FontListData.get(player.id).maxPage = Math.floor(
     maxOffset / MAX_FONTLIST_ROWS
   );
 

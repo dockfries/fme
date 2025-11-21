@@ -97,8 +97,16 @@ GameMode.onExit(({ next }) => {
 PlayerEvent.onConnect(({ player, next }) => {
   player.charset = GLOBAL_CHARSET;
 
+  player.cancelSelectTextDraw();
+
   defaultPlayerData(player);
   player.enableCameraTarget(true);
+  player.spawn();
+  return next();
+});
+
+PlayerEvent.onSpawn(({ player, next }) => {
+  player.toggleControllable(true);
   return next();
 });
 

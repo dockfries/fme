@@ -48,7 +48,7 @@ export function refreshMapLoadedTextDraw() {
     destroyMapLoadedTextDraw();
   } else {
     createMapLoadedTextDraw();
-    const g_MapString = getMapName(g_MapVar.loadedID);
+    const g_MapString = getMapName(g_MapVar.loadedID).name;
     const g_TextDrawString = `~w~Last Map Loaded: ~r~${g_MapString}`;
     g_MapVar.loadedTD?.setString(g_TextDrawString).showAll();
   }

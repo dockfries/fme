@@ -313,7 +313,7 @@ TextDrawEvent.onPlayerClickGlobal(({ player, textDraw, next }) => {
   return next();
 });
 
-TextDrawEvent.onPlayerClickGlobal(({ player, textDraw, next }) => {
+TextDrawEvent.onPlayerClickPlayer(({ player, textDraw, next }) => {
   if (textDraw === g_BuildListPTD.get(player.id).page) {
     showBuildListDialog(player, DIALOG_ID.BUILDLIST_PAGE);
     return 1;
@@ -956,7 +956,7 @@ export async function showBuildListDialog(player: Player, dialogId: number) {
       }
 
       const modelId = g_BuildingData.get(buildingId).model;
-      const g_ModelString = getModelName(modelId);
+      const g_ModelString = getModelName(modelId).name;
 
       g_DialogCaption = "Buildings: Remove Building";
       const g_DialogInfo = [
@@ -981,7 +981,7 @@ export async function showBuildListDialog(player: Player, dialogId: number) {
       }
 
       const modelId = g_BuildingData.get(buildingId).model;
-      const g_ModelString = getModelName(modelId);
+      const g_ModelString = getModelName(modelId).name;
 
       g_DialogCaption = "Buildings: Recreate Building";
       const g_DialogInfo = [

@@ -721,7 +721,7 @@ export function loadAnimationListRowData(player: Player) {
     g_AnimListData.get(player.id).rowIndex[row] = INVALID_ANIM_INDEX;
   }
 
-  g_AnimListData.get(player.id).maxPage = Math.ceil(
+  g_AnimListData.get(player.id).maxPage = Math.floor(
     maxOffset / MAX_ANIM_LIST_ROWS
   );
 
