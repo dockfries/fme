@@ -447,7 +447,7 @@ export async function showAttachedDialog(player: Player, dialogId: number) {
               )
                 .toString(16)
                 .padStart(6, "0");
-              const g_DialogInfoRow = `Color 1\t0x${color}Color\n`;
+              const g_DialogInfoRow = `Color 1\t{${color}}Color\n`;
               g_DialogInfo += g_DialogInfoRow;
             } else {
               g_DialogInfo += "Color 1\t \n";
@@ -473,7 +473,7 @@ export async function showAttachedDialog(player: Player, dialogId: number) {
               )
                 .toString(16)
                 .padStart(6, "0");
-              const g_DialogInfoRow = `Color 2\t0x${color}Color\n`;
+              const g_DialogInfoRow = `Color 2\t{${color}}Color\n`;
               g_DialogInfo += g_DialogInfoRow;
             } else {
               g_DialogInfo += "Color 2\t \n";

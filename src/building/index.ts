@@ -245,9 +245,18 @@ export function findBuildings(
 ) {
   let rowsFound = 0;
   let rowsAdded = 0;
+  let minDistance = 0;
 
   for (let b = 0; b < BUILDING_DATA_SIZE; b++) {
-    const { retBuildingId } = getNearestBuilding(x, y, z, 0, 0, incMode);
+    const { retBuildingId, retDistance } = getNearestBuilding(
+      x,
+      y,
+      z,
+      minDistance,
+      minDistance,
+      incMode
+    );
+    minDistance = retDistance;
 
     if (retBuildingId === INVALID_BUILDING_ID) {
       break;

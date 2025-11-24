@@ -1499,7 +1499,7 @@ export async function showObjectDialog(player: Player, dialogId: number) {
                 .padStart(6, "0");
 
               if (textureId === INVALID_TEXTURE_ID) {
-                g_DialogInfoRow = `Material Index ${materialIndex}\t0x${colorRgb}Color\n`;
+                g_DialogInfoRow = `Material Index ${materialIndex}\t{${colorRgb}}Color\n`;
               } else {
                 const {
                   modelId,
@@ -1716,7 +1716,7 @@ export async function showObjectDialog(player: Player, dialogId: number) {
                 materialIndex
               ];
               const rgb = aRGBtoRGB(argb).toString(16).padStart(6, "0");
-              const g_DialogInfoRow = `Texture\tColor\t0x${rgb}Color\n`;
+              const g_DialogInfoRow = `Texture\tColor\t{${rgb}}Color\n`;
               g_DialogInfo += g_DialogInfoRow;
             } else {
               g_DialogInfo += "Texture\tColor\t-\n";
@@ -1821,7 +1821,7 @@ export async function showObjectDialog(player: Player, dialogId: number) {
               const fontColor = g_ObjectData.get(objectId - 1)
                 .matIndexFontColor[materialIndex];
               const rgb = aRGBtoRGB(fontColor).toString(16).padStart(6, "0");
-              const g_DialogInfoRow = `Text\tFont Color\t0x${rgb}Color\n`;
+              const g_DialogInfoRow = `Text\tFont Color\t{${rgb}}Color\n`;
               g_DialogInfo += g_DialogInfoRow;
             } else {
               g_DialogInfo += "Text\tFont Color\t-\n";
@@ -1847,7 +1847,7 @@ export async function showObjectDialog(player: Player, dialogId: number) {
                 materialIndex
               ];
               const rgb = aRGBtoRGB(argb).toString(16).padStart(6, "0");
-              const g_DialogInfoRow = `Text\tBackground Color\t0x${rgb}Color\n`;
+              const g_DialogInfoRow = `Text\tBackground Color\t{${rgb}}Color\n`;
               g_DialogInfo += g_DialogInfoRow;
             } else {
               g_DialogInfo += "Text\tBackground Color\t-\n";

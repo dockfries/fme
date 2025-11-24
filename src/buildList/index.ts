@@ -360,10 +360,9 @@ TextDrawEvent.onPlayerClickPlayer(({ player, textDraw, next }) => {
         g_PlayerData.get(player.id).editId = buildingId;
         g_PlayerData.get(player.id).editIdType = ID_TYPE.BUILDING;
 
-        g_ModelViewData.get(player.id).modelId = g_BuildingData.get(
-          player.id
-        ).model;
-        if (g_ModelViewData.get(player.id).modelId) {
+        g_ModelViewData.get(player.id).modelId =
+          g_BuildingData.get(buildingId).model;
+        if (g_ModelViewData.get(player.id).toggle) {
           applyModelViewModel(player, true);
         } else {
           showModelView(player);
@@ -374,20 +373,20 @@ TextDrawEvent.onPlayerClickPlayer(({ player, textDraw, next }) => {
       if (row === prevRow && prevIsViewed) {
         showBuildListDialog(
           player,
-          g_BuildingData.get(player.id).isRemoved
+          g_BuildingData.get(buildingId).isRemoved
             ? DIALOG_ID.BUILDLIST_RECREATE
             : DIALOG_ID.BUILDLIST_REMOVE
         );
         return 1;
       }
 
-      const buildModelId = g_BuildingData.get(player.id).model;
-      const buildX = g_BuildingData.get(player.id).x;
-      const buildY = g_BuildingData.get(player.id).y;
-      const buildZ = g_BuildingData.get(player.id).z;
-      const buildRx = g_BuildingData.get(player.id).rx;
-      const buildRy = g_BuildingData.get(player.id).ry;
-      const buildRz = g_BuildingData.get(player.id).rz;
+      const buildModelId = g_BuildingData.get(buildingId).model;
+      const buildX = g_BuildingData.get(buildingId).x;
+      const buildY = g_BuildingData.get(buildingId).y;
+      const buildZ = g_BuildingData.get(buildingId).z;
+      const buildRx = g_BuildingData.get(buildingId).rx;
+      const buildRy = g_BuildingData.get(buildingId).ry;
+      const buildRz = g_BuildingData.get(buildingId).rz;
 
       const {
         radius: sphereRadius,
