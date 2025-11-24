@@ -95,10 +95,10 @@ PlayerEvent.onUpdate(({ player, next }) => {
 });
 
 export function refreshPlayerEditMarker(player: Player) {
-  let objectId = InvalidEnum.OBJECT_ID;
-  let vehicleId = InvalidEnum.VEHICLE_ID;
-  let pickupId = InvalidEnum.PICKUP_ID;
-  let actorId = InvalidEnum.ACTOR_ID;
+  let objectId: number = InvalidEnum.OBJECT_ID;
+  let vehicleId: number = InvalidEnum.VEHICLE_ID;
+  let pickupId: number = InvalidEnum.PICKUP_ID;
+  let actorId: number = InvalidEnum.ACTOR_ID;
   let modelId = INVALID_MODEL_ID;
   let buildingId = INVALID_BUILDING_ID;
   let unToggle = true;
@@ -188,8 +188,8 @@ export function refreshPlayerEditMarker(player: Player) {
     g_EditMarkerData.get(player.id).model = modelId;
   }
 
-  let attachToObjectId = InvalidEnum.OBJECT_ID;
-  let attachToVehicleId = InvalidEnum.VEHICLE_ID;
+  let attachToObjectId: number = InvalidEnum.OBJECT_ID;
+  let attachToVehicleId: number = InvalidEnum.VEHICLE_ID;
   let x = 0;
   let y = 0;
   let z = 0;

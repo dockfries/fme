@@ -357,8 +357,8 @@ TextDrawEvent.onPlayerClickPlayer(({ player, textDraw, next }) => {
         g_ObjectData.get(objectId - 1).matIndexModCount >=
         MAX_MATERIALINDEX_MODCOUNT
       ) {
-        const new_objectId = recreateObject(objectId);
-        if (new_objectId === InvalidEnum.OBJECT_ID) {
+        const newObjectId = recreateObject(objectId);
+        if (newObjectId === InvalidEnum.OBJECT_ID) {
           player.sendClientMessage(
             RGBA_RED,
             "ERROR: This object could not be color reset / re-created!"

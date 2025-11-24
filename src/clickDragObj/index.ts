@@ -39,10 +39,10 @@ export function defaultClickDragObjectData(player: Player) {
 }
 
 export function refreshClickDragObject(player: Player) {
-  let x = 0,
-    y = 0,
-    z = 0,
-    a = 0;
+  let x = 0;
+  let y = 0;
+  let z = 0;
+  let a = 0;
 
   switch (g_PlayerData.get(player.id).editIdType) {
     case ID_TYPE.VEHICLE: {

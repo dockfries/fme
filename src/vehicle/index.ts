@@ -690,7 +690,7 @@ export function copyVehicle(copyVehicleId: number, a: number) {
     return InvalidEnum.VEHICLE_ID;
   }
 
-  let pasteVehicleId = InvalidEnum.VEHICLE_ID;
+  let pasteVehicleId: number = InvalidEnum.VEHICLE_ID;
 
   const copyVeh = Vehicle.getInstance(copyVehicleId)!;
   const { x, y, z } = copyVeh.getPos();

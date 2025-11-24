@@ -380,10 +380,10 @@ TextDrawEvent.onPlayerClickPlayer(({ player, textDraw, next }) => {
       textDraw === g_SelectListPTD.get(player.id).modelIdRow[row] ||
       textDraw === g_SelectListPTD.get(player.id).commentRow[row]
     ) {
-      let objectId = InvalidEnum.OBJECT_ID;
-      let vehicleId = InvalidEnum.VEHICLE_ID;
-      let pickupId = InvalidEnum.PICKUP_ID;
-      let actorId = InvalidEnum.ACTOR_ID;
+      let objectId: number = InvalidEnum.OBJECT_ID;
+      let vehicleId: number = InvalidEnum.VEHICLE_ID;
+      let pickupId: number = InvalidEnum.PICKUP_ID;
+      let actorId: number = InvalidEnum.ACTOR_ID;
 
       switch (g_PlayerData.get(player.id).tdMode) {
         case TD_MODE.SELECTLIST_OBJECT: {
@@ -1409,10 +1409,7 @@ export function applySelectListRowColor(player: Player, row: number) {
     rgbaBoxColor = 0x00000000;
   }
 
-  g_SelectListPTD
-    .get(player.id)
-    .idRow[row]?.setBoxColors(rgbaBoxColor)
-    .show();
+  g_SelectListPTD.get(player.id).idRow[row]?.setBoxColors(rgbaBoxColor).show();
   g_SelectListPTD
     .get(player.id)
     .modelIdRow[row]?.setBoxColors(rgbaBoxColor)
@@ -1425,10 +1422,10 @@ export function applySelectListRowColor(player: Player, row: number) {
 }
 
 export function applySelectListRowData(player: Player, row: number) {
-  let objectId = InvalidEnum.OBJECT_ID;
-  let vehicleId = InvalidEnum.VEHICLE_ID;
-  let actorId = InvalidEnum.ACTOR_ID;
-  let pickupId = InvalidEnum.PICKUP_ID;
+  let objectId: number = InvalidEnum.OBJECT_ID;
+  let vehicleId: number = InvalidEnum.VEHICLE_ID;
+  let actorId: number = InvalidEnum.ACTOR_ID;
+  let pickupId: number = InvalidEnum.PICKUP_ID;
   let isValid = false;
 
   switch (g_PlayerData.get(player.id).tdMode) {
@@ -1482,7 +1479,6 @@ export function applySelectListRowData(player: Player, row: number) {
       break;
     }
     case TD_MODE.SELECTLIST_ACTOR: {
-      
       idStr = actorId.toString();
       modelIdStr = Actor.getInstance(actorId)!.getSkin().toString();
       g_CommentString = g_ActorData.get(actorId).comment || "";

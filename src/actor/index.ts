@@ -97,7 +97,7 @@ ObjectMpEvent.onPlayerEdit(
           actor.setPos(fX, fY, fZ);
 
           const newActor = recreateActor(actorId, fRotZ);
-          if (!newActor) {
+          if (newActor === InvalidEnum.ACTOR_ID) {
             player.sendClientMessage(
               RGBA_RED,
               "ERROR: This actor could not be rotated / re-created!"
@@ -119,7 +119,7 @@ ObjectMpEvent.onPlayerEdit(
             actorId,
             g_ActorData.get(actor.id).memoryA
           );
-          if (!newActor) {
+          if (newActor === InvalidEnum.ACTOR_ID) {
             player.sendClientMessage(
               RGBA_RED,
               "ERROR: This actor could not be rotated / re-created!"
@@ -131,7 +131,7 @@ ObjectMpEvent.onPlayerEdit(
           actor.setPos(fX, fY, fZ);
 
           const newActor = recreateActor(actorId, fRotZ);
-          if (!newActor) {
+          if (newActor === InvalidEnum.ACTOR_ID) {
             player.sendClientMessage(
               RGBA_RED,
               "ERROR: This actor could not be rotated / re-created!"
@@ -577,16 +577,16 @@ export async function showActorDialog(player: Player, dialogId: number) {
       }
 
       const { x, y, z } = actor.getPos();
-      const a = actor.getFacingAngle();
+      const a = actor.getFacingAngle().angle;
 
       let g_DialogInfoRow = "";
-      g_DialogInfoRow += `x\t${x}\n`;
+      g_DialogInfoRow = `x\t${x}\n`;
       g_DialogInfo += g_DialogInfoRow;
-      g_DialogInfoRow += `y\t${y}\n`;
+      g_DialogInfoRow = `y\t${y}\n`;
       g_DialogInfo += g_DialogInfoRow;
-      g_DialogInfoRow += `z\t${z}\n`;
+      g_DialogInfoRow = `z\t${z}\n`;
       g_DialogInfo += g_DialogInfoRow;
-      g_DialogInfoRow += `a\t${a}\n`;
+      g_DialogInfoRow = `a\t${a}\n`;
       g_DialogInfo += g_DialogInfoRow;
 
       const res = await new Dialog({
